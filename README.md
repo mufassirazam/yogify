@@ -67,14 +67,14 @@ npm run dev
       Attributes:
         * UserID (primary key)
         * Name
-        * Email
-        * Age
+        * Email(unique)
+        * Age(min: 18 max: 65)
   
   ### 2. Batch:
   
       Attributes:
         * BatchID (primary key)
-        * TimeSlot (e.g., "6-7AM", "7-8AM", "8-9AM", "5-6PM")
+        * TimeSlot ( "6-7AM", "7-8AM", "8-9AM", "5-6PM")
   ### 3. Enrollment:
   
       Attributes:
