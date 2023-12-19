@@ -26,6 +26,31 @@ This project is a simple web application designed to facilitate the enrollment p
   * Express.js
   * MongoDB
 
+
+# Approach
+  ## Client
+  A basic admission form is shown to the user when they click on the enroll button.
+  All the necessary conditions have been enforced with html tags.
+  For age, in the input tag - min and max attributes are defined
+  Email validation is also done on the client side. 
+  If all the entered values are satisfying then a post request is sent to the backend.
+
+  ## Server
+    All the values are extracted first and then validation is done again.
+    If there is some error, the error is returned.
+
+    The timing/batch is first found out from the Batch collection and is stored in  a variable for further use.
+
+    After the validations, the email is searched in the user database(since email is unique)
+    If it is found, then the same user is used for enrollment. If not, then a new user entry is created in the User Collection/Table.
+
+    Then for the userId and the chosen month is searched in the Enrollment Collections. If an entry exists with the same userId and month. Then the requests returns and informs the user that changing the batch is not allowed for an already paid month.
+
+    If no entry is found, a new enrollment is created with the userId, batchId, month and paymentStatus and saved in the collections. The mock payment function is called and if it returns true, then the payment status is changed to "paid" and the request return and takes the user to the /success page.
+
+    If payment fails, the user is shown the possible reason.
+
+
 # Installation
 ## Clone the repository
 ```
@@ -105,6 +130,7 @@ npm run dev
  * Amount if fixed at 500. So it cannot be changed
  * For every successful payment, a page informing the user of success is returned. But for a failure in payment, only an alert is shown to the user, with the possible reason.
  * None of the other functionalities in the landing page are implemented except for "enrollment". 
+ * All the batches are already present in the database.
    
 
 # Future Improvements
