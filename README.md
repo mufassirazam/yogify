@@ -92,6 +92,21 @@ npm run dev
   * One Enrollment belongs to one User and one Batch:
     * Each Enrollment record uniquely associates a User with a Batch for a specific month (many-to-many relationship resolved with Enrollment entity).
 
+  ## ER DIAGRAM
+  ![IMG_2402](https://github.com/mufassirazam/yogify/assets/154338810/97ee99f6-9c2f-4d89-99c2-928b355c8c9b)
+
+
+# Assumptions
+ * Payment for any month can be done by selecting
+ * Same user can pay for all the months
+ * Only the month is considered(Year is not considered)
+ * CompletePayment() function is a simple function that just returns {success: true}
+ * The user is supposed to enter the correct name. The name of the user is not compared with the originally stored name in the database.
+ * Amount if fixed at 500. So it cannot be changed
+ * For every successful payment, a page informing the user of success is returned. But for a failure in payment, only an alert is shown to the user, with the possible reason.
+ * None of the other functionalities in the landing page are implemented except for "enrollment". 
+   
+
 # Future Improvements
   * Implement user authentication for secure access to enrollment data.
   * Incorporate a scheduler to automate payment reminders.
