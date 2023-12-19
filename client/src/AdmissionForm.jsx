@@ -24,13 +24,16 @@ const AdmissionForm = ({ takeit }) => {
     }
     setEmailError(false);
     try {
-      const response = await fetch("http://localhost:3001/api/enroll", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://yogifyapp.onrender.com/api/enroll",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
       console.log(data); // Handle response from backend
