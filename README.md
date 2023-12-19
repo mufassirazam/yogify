@@ -36,19 +36,19 @@ This project is a simple web application designed to facilitate the enrollment p
   If all the entered values are satisfying then a post request is sent to the backend.
 
   ## Server
-    All the values are extracted first and then validation is done again.
-    If there is some error, the error is returned.
+  All the values are extracted first and then validation is done again.
+  If there is some error, the error is returned.
 
-    The timing/batch is first found out from the Batch collection and is stored in  a variable for further use.
+  The timing/batch is first found out from the Batch collection and is stored in  a variable for further use.
 
-    After the validations, the email is searched in the user database(since email is unique)
-    If it is found, then the same user is used for enrollment. If not, then a new user entry is created in the User Collection/Table.
+  After the validations, the email is searched in the user database(since email is unique)
+  If it is found, then the same user is used for enrollment. If not, then a new user entry is created in the User Collection/Table.
 
-    Then for the userId and the chosen month is searched in the Enrollment Collections. If an entry exists with the same userId and month. Then the requests returns and informs the user that changing the batch is not allowed for an already paid month.
+  Then for the userId and the chosen month is searched in the Enrollment Collections. If an entry exists with the same userId and month. Then the requests returns and informs the user that changing the batch is not allowed for an already paid month.
 
-    If no entry is found, a new enrollment is created with the userId, batchId, month and paymentStatus and saved in the collections. The mock payment function is called and if it returns true, then the payment status is changed to "paid" and the request return and takes the user to the /success page.
+  If no entry is found, a new enrollment is created with the userId, batchId, month and paymentStatus and saved in the collections. The mock payment function is called and if it returns true, then the payment status is changed to "paid" and the request return and takes the user to the /success page.
 
-    If payment fails, the user is shown the possible reason.
+  If payment fails, the user is shown the possible reason.
 
 
 # Installation
